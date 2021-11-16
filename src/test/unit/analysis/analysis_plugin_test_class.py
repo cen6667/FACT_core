@@ -42,6 +42,8 @@ class AnalysisPluginTest(unittest.TestCase):
         config.set('data_storage', 'mongo_server', 'localhost')
         config.set('data_storage', 'mongo_port', '54321')
         config.set('data_storage', 'view_storage', 'tmp_view')
+        # TODO what about non-docker
+        config.set('data_storage', 'temp_dir_path', '/tmp/fact-docker-tmp')
         return config
 
     def register_plugin(self, name, plugin_object):
