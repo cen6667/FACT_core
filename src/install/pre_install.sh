@@ -59,6 +59,8 @@ else
 	    fi
 	fi
 	# install docker
+	sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list
+	apt-get clean
 	sudo apt-get update
 	sudo apt-get -y install docker-ce
 fi
