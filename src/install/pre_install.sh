@@ -6,8 +6,8 @@ set -e
 cd "$( dirname "${BASH_SOURCE[0]}" )" || exit 1
 
 FACTUSER=$(whoami)
-sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list
-apt-get clean
+sudo sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list
+sudo apt-get clean
 CODENAME=$(lsb_release -cs)
 if [ "${CODENAME}" = "ulyana" ]; then
     CODENAME=focal
@@ -79,6 +79,7 @@ if [[ $IS_VENV == "False" ]]
 then
   SUDO="sudo -EH"
 fi
+$SUDO sed -i ‘s/http.*/https://pypi.tuna.tsinghua.edu.cn/simple/’ ~/.pip/pip.conf
 $SUDO pip3 install -U pip
 $SUDO pip3 install -r ./requirements_pre_install.txt --prefer-binary
 
