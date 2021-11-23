@@ -80,7 +80,7 @@ then
   SUDO="sudo -EH"
 fi
 $SUDO sed -i ‘s/http.*/https://pypi.tuna.tsinghua.edu.cn/simple/’ ~/.pip/pip.conf
-$SUDO pip3 install -U pip
+$SUDO pip3 install -U pip -i https://mirrors.aliyun.com/pypi/simple/
 $SUDO pip3 install -r ./requirements_pre_install.txt --prefer-binary
 
 echo -e "Pre-Install-Routine complete! \\033[31mPlease reboot before running install.py\\033[0m"
